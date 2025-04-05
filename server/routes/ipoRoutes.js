@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
-import pool from "./config/database.js";
+import pool from "../../config/database.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import authenticate from "./middleware/auth.js";
+import authenticate from "../middleware/auth.js";
 import cookieParser from "cookie-parser";
 
 const router = express.Router();
