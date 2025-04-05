@@ -1,5 +1,6 @@
 import ("dotenv/config");
-const { Pool } = require("pg");
+import pkg from 'pg';
+const { Pool } = pkg;
 
     const pool = new Pool({
     user: process.env.PGUSER,
