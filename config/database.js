@@ -9,4 +9,4 @@ const { Pool } = require("pg");
     port: process.env.PGPORT
 });
 
-module.exports = pool;
+export default pool;
