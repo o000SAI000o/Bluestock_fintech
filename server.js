@@ -2,7 +2,7 @@ import 'dotenv/config';
 import path from "path";
 import express from 'express';
 import cors from 'cors';
-import ipoRoutes from "./routes/ipoRoutes.js";
+import ipoRoutes from "/routes/ipoRoutes.js";
 import cookieParser from "cookie-parser";
 import { fileURLToPath } from 'url';
 
