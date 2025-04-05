@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  font-family: Poppins;
+}
+
+
+.navbar {
+  height: 90px;
+}
+
+.navbar-brand img {
+  height: 45px;
+  width: 85px;
+}
+.nav-link {
+  color: #9A9A9A;
+  margin-left: 15px;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: black;
+}
+.signin {
+color: #9A9A9A;
+}
+.signin:hover {
+color: black;
+}
+.btn-signup {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
+.btn-signup:hover {
+  background-color: #2563eb;
+}
+
+.vector {
+  padding-left: 10px;
+  margin-top: 6px;
+}
+
+.content-1 {
+  margin-top: 50px;
+}
+
+.component-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.component-1 a {
+  text-decoration: none;
+}
+
+.content-1 {
+  display: flex;
+  justify-content: center;
+
+}
+
+.image {
+  margin-right: 10px;
+  width: 30px;
+  cursor: pointer;
+  height: 30px;
+}
+
+.compare {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+  height: 300px;
+  width: 200px;
+}
+
+.vs {
+  margin-top: 125px;
+  height: 40px;
+  width: 40px;
+}
+
+.component-2 {
+  margin-left: 125px;
+  gap: 50px;
+  display: flex;
+}
+
+.compare img {
+  margin-top: 30px;
+  width: 100px;
+}
+
+.compare p {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.btn-demat {
+  border-radius: 10px;
+  width: 150px;
+  height: 30px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: #45BBBC;
+}
+
+.content-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 60px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.content-2 img {
+  width: 690px;
+}

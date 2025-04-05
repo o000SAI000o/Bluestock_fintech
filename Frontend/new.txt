@@ -1,0 +1,58 @@
+<nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link">IPO</a></li>
+          <li><a href="#" class="nav-link">COMMUNITY</a></li>
+          <li class="nav-item-with-dropdown">
+            <a href="#" class="nav-link">PRODUCTS</a>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/c5c21368582b4b2aaf7d9e4154a8196c/d01ad1c6a32f4ff8380744b09dec4c42e1ee5b10e695e7b9b94a6261fa87e11c?placeholderIfAbsent=true"
+              class="dropdown-icon"
+              alt=""
+            />
+          </li>
+          <li class="nav-item-with-dropdown">
+            <a href="#" class="nav-link">BROKERS</a>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/c5c21368582b4b2aaf7d9e4154a8196c/a9dcc39d413bc46bba7f3fa1c7beb27e6f8a038fa8422117008109dde6ed258c?placeholderIfAbsent=true"
+              class="dropdown-icon"
+              alt=""
+            />
+          </li>
+          <li class="nav-item-with-badge">
+            <a href="#" class="nav-link">LIVE NEWS</a>
+            <span class="new-badge">NEW</span>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="auth-section">
+        <a href="#" class="sign-in-link">Sign In</a>
+        <a href="#" class="sign-up-button">Sign Up Now</a>
+        <button class="menu-button" aria-label="Menu">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/c5c21368582b4b2aaf7d9e4154a8196c/f2b9e1b9360141f8a16718b7271c591ecf117b76709fcc52ff66dcd17c832cb5?placeholderIfAbsent=true"
+            class="menu-icon"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+
+
+
+
+    <p class="download-count"><span>4.4 K+</span> DOWNLOADS</p>
+      </div>
+
+      <div class="app-info">
+        <div class="app-text">
+          <h3 class="app-title">Enjoy Free Learning, Analytics Club</h3>
+          <p class="app-description">Get the link to download the App</p>
+        </div>
+
+        <div class="app-link-form">
+          <button class="send-link-button">Send App Link</button>
+        </div>

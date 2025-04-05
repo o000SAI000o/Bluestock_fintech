@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Styles/style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Bluestock signup</title>
+</head>
+<body>
+  <div class="login-container">
+    <div class="company">
+      <img class="logo" src="images/logo.png" alt="Bluestock Logo">
+      <p>BLUESTOCK</p>
+    </div>
+    <p class="account">Create an account</p>
+
+    <form id="signup-form" action="submit_signup.php" method="POST">
+      <label for="full_name">Name</label>
+      <input type="text" id="full_name" placeholder="Saisha Wagh" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="hello@bluestock.in" required>
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="**************" required>
+
+      <label for="phone_number">Phone Number:</label>
+      <input type="tel" id="phone_number" placeholder="123-456-7890" required>
+
+      <div class="terms">
+        <p>By continuing, you agree to our</p>
+        <a href="#">terms of service.</a>
+      </div>
+
+      <div class="captcha-container">
+        <div class="part-1"></div>
+        <input type="checkbox" id="captcha" required>
+        <label for="captcha"><p class="robo">I'm not a robot</p></label>
+        <div class="part-2">
+          <img src="images/recaptcha-icon.png" alt="reCAPTCHA Icon">
+          <!-- <p style="font-size: 7px;">reCAPTCHA</p> -->
+        </div>
+      </div>
+
+      <button type="submit" class="login-btn">Sign up</button>
+
+      <div class="or-divider"><p class="other-way">or sign up with</p></div>
+
+      <button class="google-btn">
+        <img src="images/google-icon.png" alt="Google Icon"> Continue with Google
+      </button>
+      
+      <div class="base">
+        <p>Already have an account?</p>
+        <a href="login.html" class="create-account">Sign in here</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

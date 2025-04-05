@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPO Subscriptions</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #2f1aa9;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: block;
+            margin: 0 auto 20px auto;
+            background-color: #ffffff;
+            color: #3F52FF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: solid #3F52FF 2px;
+            border-radius: 5%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #160476;
+            color:#ffffff;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .table thead {
+            background-color: #3F52FF;
+            color: #ffffff;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .table th {
+            font-weight: bold;
+        }
+        .back { 
+            display: block;
+            margin: 0 auto 20px auto;
+            background-color: #ffffff;
+            color: #634fd6;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: solid #7766db 2px;
+            border-radius: 5%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .back:hover{
+            background-color: #23137a;
+            color:#ffffff;
+        }
+        .loading, .error {
+            text-align: center;
+            font-size: 16px;
+            color: #3e2381;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>IPO Subscriptions</h2>
+    <button class="btn" onclick="fetchIPOs()">Refresh IPOs</button>
+    <button class="back" onclick="goBack()">⬅ Back</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Company</th>
+                <th>Price (₹)</th>
+                <th>Lot Size</th>
+                <th>Subscription (%)</th>
+                <th>Closing Date</th>
+            </tr>
+        </thead>
+        <tbody id="ipoTable">
+            <tr>
+                <td colspan="6" class="loading">Loading IPOs...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+async function fetchIPOs() {
+    const tableBody = document.getElementById("ipoTable");
+    tableBody.innerHTML = '<tr><td colspan="6" class="loading">Fetching IPOs...</td></tr>';
+
+    try {
+        let response = await fetch("http://localhost:5000/api/subscriptions");
+        let data = await response.json();
+
+        tableBody.innerHTML = data.map((ipo, index) => `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${ipo.company}</td>
+                <td>₹${ipo.price}</td>
+                <td>${ipo.lot_size}</td>
+                <td>${ipo.subscription}%</td>
+                <td>${ipo.closing_date}</td>
+            </tr>
+        `).join('');
+    } catch (error) {
+        console.error("Error fetching IPOs:", error);
+        tableBody.innerHTML = '<tr><td colspan="6" class="error">Failed to load data</td></tr>';
+    }
+}
+function goBack() {
+    window.history.back();
+}
+// Load IPOs on page load
+fetchIPOs();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .text-center{
+            height:210px;
+        }
+        .form-check-input {
+            cursor: pointer;
+        }
+        .profile-img {
+            width: 180px;
+            height: 190px;
+            border-radius: 50%;
+            border: 4px solid #ccc;
+            cursor: pointer;
+            transition:0.8s ease-in-out;
+        }
+        .profile-img:hover{
+            border-color:rgb(172, 147, 255);
+            border-style:outset;
+        }
+        .mt-4{
+            width: 800px;
+        }.navbar {
+            height: 90px;
+          }
+          
+          .navbar-brand img {
+            height: 45px;
+            width: 85px;
+          }
+          .nav-link {
+            color: #9A9A9A;
+            margin-left: 15px;
+            font-weight: 500;
+          }
+          .nav-link:hover {
+            color: black;
+          }
+          .signin {
+          color: #9A9A9A;
+          }
+          .signin:hover {
+          color: black;
+          }
+          .btn-signup {
+            background-color: #3b82f6;
+            color: white;
+            font-weight: 600;
+          }
+          .btn-signup:hover {
+            background-color: #2563eb;
+          }
+          .vector {
+                  padding-left: 10px;
+                  margin-top: 6px;
+                  }
+        </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/logo.png" alt="Bluestock Logo">
+                <span style="font-size: 30px; font-weight: 700;" class="ms-2 fw-bold">BLUESTOCK</span>
+            </a>
+    
+            <!-- Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">PRODUCTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">COMMUNITY</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown">
+                            MEDIA
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Product 1</a></li>
+                            <li><a class="dropdown-item" href="#">Product 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">SUPPORT</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="#">LIVE NEWS <span class="badge bg-primary">NEW</span></a></li>
+                </ul>    
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link signin" href="login.html">Sign In</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-signup" href="signup.html">Sign Up Now</a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/Vector.png" class="vector"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </nav>
+
+<div class="container mt-4">
+    <h2 style="text-align:center;">Settings</h2>
+
+    <!-- Profile Settings -->
+    <div class="card p-3 mt-3">
+        <h5 style="text-align:center; height:35px;">Profile Settings</h5>
+        <div class="text-center">
+            <img id="profilePic"  src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3467.jpg" class="profile-img" alt="Profile Picture">
+        </div>
+        <input type="file" style="width:250px; margin-left:35%;" class="form-control mt-2" id="uploadPic">
+        <form>
+            <div class="mb-2">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Enter name">
+            </div>
+            <div class="md-2">
+                <label for="role" class="form-label">Role</label>
+                <select id="role" default="User" name="role" class="form-select rounded">
+                    <option value="User">User</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Enter email">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">New Password</label>
+                <input type="password" class="form-control" placeholder="New password">
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+
+    <!-- Security Settings -->
+    <div class="card p-3 mt-3">
+        <h5>Security Settings</h5>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="2faToggle">
+            <label class="form-check-label" for="2faToggle">Enable 2FA</label>
+        </div>
+        <button class="btn btn-warning mt-2">Reset Password</button>
+        <button class="btn btn-danger mt-2" onclick="logoutAllSessions()">Log Out from All Devices</button>
+    </div>
+
+    <!-- Theme Preferences -->
+    <div class="card p-3 mt-3">
+        <h5>Theme Preferences</h5>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="themeToggle">
+            <label class="form-check-label" for="themeToggle">Dark Mode</label>
+        </div>
+    </div>
+
+    <!-- Notification Settings -->
+    <div class="card p-3 mt-3">
+        <h5>Notification Settings</h5>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="emailNotify">
+            <label class="form-check-label" for="emailNotify">Email Notifications</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="smsNotify">
+            <label class="form-check-label" for="smsNotify">SMS Notifications</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="pushNotify">
+            <label class="form-check-label" for="pushNotify">Push Notifications</label>
+        </div>
+    </div>
+
+    <!-- Activity Log -->
+    <div class="card p-3 mt-3">
+        <h5>Recent Login Activity</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Device</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody id="activityLog">
+                <tr>
+                    <td>2025-04-01 12:45 PM</td>
+                    <td>Chrome - Windows</td>
+                    <td>New York, USA</td>
+                </tr>
+                <tr>
+                    <td>2025-03-31 10:20 AM</td>
+                    <td>Safari - iPhone</td>
+                    <td>Los Angeles, USA</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const storedUserString = sessionStorage.getItem('user');
+        if (storedUserString) {
+            const storedUser = JSON.parse(storedUserString);
+            document.getElementById('name').value = storedUser.full_name;
+            document.getElementById('role').value = storedUser.role;
+            document.getElementById('email').value = storedUser.email;
+        } else {
+            alert('No user data found. Please log in.');
+            // Redirect to login page or handle accordingly
+        }
+    });
+    
+    document.getElementById("themeToggle").addEventListener("change", function () {
+        if (this.checked) {
+            document.body.classList.add("bg-dark", "text-light");
+        } else {
+            document.body.classList.remove("bg-dark", "text-light");
+        }
+    });
+    document.getElementById('profilePic').addEventListener('click', function() {
+        document.getElementById('uploadPic').click();
+    });
+
+    document.getElementById("uploadPic").addEventListener("change", function (event) {
+        let reader = new FileReader();
+        reader.onload = function () {
+            document.getElementById("profilePic").src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
+
+    function logoutAllSessions() {
+        let confirmLogout = confirm("Are you sure you want to log out from all devices?");
+        if (confirmLogout) {
+            alert("Logged out from all devices.");
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

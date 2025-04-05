@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .text-center{
+            height:210px;
+        }
+        .form-check-input {
+            cursor: pointer;
+        }
+        .profile-img {
+            width: 180px;
+            height: 190px;
+            border-radius: 50%;
+            border: 4px solid #ccc;
+            cursor: pointer;
+            transition:0.8s ease-in-out;
+        }
+        .profile-img:hover{
+            border-color:rgb(172, 147, 255);
+            border-style:outset;
+        }
+        .mt-3{
+            margin-left: 20%;
+            width: 800px;
+        }
+        .navbar {
+  height: 90px;
+}
+
+.navbar-brand img {
+  height: 45px;
+  width: 85px;
+}
+.nav-link {
+  color: #9A9A9A;
+  margin-left: 15px;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: black;
+}
+.signin {
+color: #9A9A9A;
+}
+.signin:hover {
+color: black;
+}
+.btn-signup {
+  background-color: #3F52FF";
+  color: white;
+  font-weight: 600;
+}
+.btn-signup:hover {
+  background-color: #3F52FF";
+}
+.vector {
+        padding-left: 10px;
+        margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/logo.png" alt="Bluestock Logo">
+                <span style="font-size: 30px; font-weight: 700;" class="ms-2 fw-bold">BLUESTOCK</span>
+            </a>
+    
+            <!-- Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">PRODUCTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">COMMUNITY</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown">
+                            MEDIA
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Product 1</a></li>
+                            <li><a class="dropdown-item" href="#">Product 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">SUPPORT</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="#">LIVE NEWS <span class="badge bg-primary">NEW</span></a></li>
+                </ul>    
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link signin" href="login.html">Sign In</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-signup" href="signup.html">Sign Up Now</a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/Vector.png" class="vector"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </nav>
+<div class="container mt-5">
+    <h2 class="text-center mt-3">Account Settings</h2>
+
+    <!-- Profile Picture Upload -->
+    <div class="card p-3 mt-3">
+        <h5 style="text-align:center; height:35px;">Profile Settings</h5>
+        <div class="text-center">
+            <img id="profilePic"  src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3467.jpg" class="profile-img" alt="Profile Picture">
+        </div>
+        <input type="file" style="width:250px; margin-left:35%;" class="form-control mt-2" id="uploadPic">
+    </div>
+
+    <!-- Personal Details -->
+    <div class="card p-3 mt-3">
+        <h5>Personal Details</h5>
+        <div class="mb-2">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" value="Vishal">
+        </div>
+        <div class="mb-2">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" value="vishal11@example.com">
+        </div>
+        <div class="mb-2">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" value="+1234567890">
+        </div>
+        <button style="background-color:#3F52FF" class="btn btn-primary" onclick="updateProfile()">Save Changes</button>
+    </div>
+
+    <!-- Reset Password -->
+    <div class="card p-3 mt-3">
+        <h5>Reset Password</h5>
+        <input type="password" class="form-control mb-2" id="currentPassword" placeholder="Current Password">
+        <input type="password" class="form-control mb-2" id="newPassword" placeholder="New Password">
+        <input type="password" class="form-control mb-2" id="confirmPassword" placeholder="Confirm Password">
+        <button style="background-color:#3F52FF;" class="btn btn-danger" onclick="resetPassword()">Change Password</button>
+    </div>
+
+    <!-- Manage Account -->
+    <div class="card p-3 mt-3">
+        <h5>Manage Your Account</h5>
+        <button  class="btn btn-warning mb-2" onclick="deactivateAccount()">Deactivate Account</button>
+        <button class="btn btn-danger" onclick="deleteAccount()">Delete Account</button>
+    </div>
+
+    <!-- 2-Step Verification -->
+    <div class="card p-3 mt-3">
+        <h5>2-Step Verification</h5>
+        <p>Enhance security by enabling 2-step verification.</p>
+        <button style="background-color:#3F52FF" class="btn btn-success" id="toggle2FA" onclick="toggle2FA()">Enable 2-Step Verification</button>
+        <p class="mt-2"><strong>Status:</strong> <span id="status2FA">Disabled ❌</span></p>
+    </div>
+
+    <!-- Account Verification (KYC) -->
+    <div class="card p-3 mt-3">
+        <h5>Account Verification (KYC)</h5>
+        <input type="file" class="form-control mb-2" id="kycFile">
+        <button style="background-color:#3F52FF" class="btn btn-primary" onclick="uploadKYC()">Upload Document</button>
+        <p class="mt-2"><strong>Verification Status:</strong> <span id="kycStatus">Not Verified</span></p>
+    </div>
+    
+    <!-- Transaction History -->
+    <div class="card p-3 mt-3">
+        <h5>Transaction History</h5>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="transactionList">
+                <tr>
+                    <td>2025-03-25</td>
+                    <td>Deposit</td>
+                    <td>₹10,000</td>
+                </tr>
+                <tr>
+                    <td>2025-03-27</td>
+                    <td>Withdraw</td>
+                    <td>₹5,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+    <footer class="footer footer-content">
+        <div style="align-content:space-evenly; margin-left:190px; margin-top:50px;" class="container">
+            <div style="align-content:space-evenly; margin-left:20px;" class="row">
+                <!-- Resources -->
+                <div class="col-md-2">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Trading View</a></li>
+                        <li><a href="#">NSE Holidays</a></li>
+                        <li><a href="#">e-Voting CDSL</a></li>
+                        <li><a href="#">e-Voting NSDL</a></li>
+                        <li><a href="#">Market Timings</a></li>
+                    </ul>
+                </div>
+      
+                <!-- Company -->
+                <div class="col-md-2">
+                    <h5 class="footer-title">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+      
+                <!-- Offerings -->
+                <div class="col-md-2">
+                    <h5 class="footer-title">Offerings</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="BrokerCompare.html">Compare Broker</a></li>
+                        <li><a href="#">Fin Calculators</a></li>
+                        <li><a href="index.html">IPO</a></li>
+                        <li><a href="AllBroker.html">All Brokers</a></li>
+                        <li><a href="products.html">Products</a></li>
+                    </ul>
+                </div>
+      
+                <!-- Links -->
+                <div class="col-md-2">
+                    <h5 class="footer-title">Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="SharkInvestor.html">Shark Investor</a></li>
+                        <li><a href="#">Mutual Funds</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Indian Indices</a></li>
+                        <li><a href="#">Bug Bounty Program</a></li>
+                    </ul>
+                </div>
+      
+                <!-- Policy -->
+                <div class="col-md-2">
+                    <h5 class="footer-title">Policy</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Trust & Security</a></li>
+                    </ul>
+                </div>
+            </div>
+      
+            <!-- Social Media & Bluestock Details -->
+            <footer class="footer container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <!-- Social Media & Logo -->
+                        <div style="margin-top:30px;" class="col-md-3 text-center text-md-start">
+                            <div class="social-icons">
+                                <a href="#"><img src="SocialIcon/X.png"></i></a>
+                                <a href="#"><img src="SocialIcon/facebook.png"></i></a>
+                                <a href="#"><img src="SocialIcon/youtube.png"></i></a>
+                                <a href="#"><img src="SocialIcon/linkedin.png"></i></a>
+                                <a href="#"><img src="SocialIcon/instagram.png"></i></a>
+                                <a href="#"><img src="SocialIcon/Telegram.png"></i></a>
+                            </div>
+                            <h5 class="mt-3"><img style="height:40px; width:40px;" class="footer-logo" src="images/logo.png"><strong>BLUESTOCK</strong></h5>
+                            <p class="text-muted">Bluestock Fintech <br>Pune, Maharashtra</p>
+                            <p class="text-muted">MSME Registration No:<br> UDYAM-MH-01-0138001</p>
+                            <img class="startup" src="SocialIcon/startup_india.png" alt="Startup India" width="140">
+                        </div>
+      
+                        <div style="margin-right:70px; margin-top:30px; width:760px;"class="col-md-8 text-center text-md-start">
+                            <p  class="text-muted">
+                                Investment in securities markets is subject to market risks. Read all the related documents carefully before investing as prescribed by SEBI. Issued in the interest of the investors.
+                            </p>
+                            <p class="text-muted">
+                                The users can write to <a href="#">hello@bluestock.in</a> for any app, website related queries. Also you can send IT / Tech related feedback to <a href="#">cto@bluestock.in</a>
+                            </p>
+                            <p class="text-muted">
+                                Disclaimer: We are not a SEBI registered research analyst company. We do not provide any kind of stock recommendations, buy/sell stock tips, or investment advice. The stock scripts shown in the Bluestock app and website are for educational purposes only.
+                            </p>
+                        </div>
+                    </div>
+            
+                    <!-- Footer Bottom -->
+                    <div style="margin-left:600px;" class="row divider text-center">
+                        <div class="col-12 greet">
+                            <p class="mb-0 text-muted">Bluestock Fintech All Rights Reserved.
+                            <p class="text-muted">Made with ❤️ in Pune, Maharashtra</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+<script>
+    document.getElementById("uploadProfilePic").addEventListener("change", function (event) {
+        let reader = new FileReader();
+        reader.onload = function () {
+            document.getElementById("profilePic").src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
+
+    function updateProfile() {
+        let name = document.getElementById("fullName").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phoneNumber").value;
+        alert("Profile Updated!\nName: " + name + "\nEmail: " + email + "\nPhone: " + phone);
+    }
+
+    function resetPassword() {
+        let currentPass = document.getElementById("currentPassword").value;
+        let newPass = document.getElementById("newPassword").value;
+        let confirmPass = document.getElementById("confirmPassword").value;
+
+        if (newPass !== confirmPass) {
+            alert("New Password and Confirm Password do not match!");
+            return;
+        }
+        alert("Password changed successfully!");
+    }
+
+    function deactivateAccount() {
+        let confirmDeactivate = confirm("Are you sure you want to deactivate your account?");
+        if (confirmDeactivate) {
+            alert("Your account has been deactivated.");
+        }
+    }
+
+    function deleteAccount() {
+        let confirmDelete = confirm("Are you sure you want to permanently delete your account?");
+        if (confirmDelete) {
+            alert("Your account has been deleted permanently.");
+        }
+    }
+
+    function toggle2FA() {
+        let status = document.getElementById("status2FA");
+        let button = document.getElementById("toggle2FA");
+
+        if (status.innerText.includes("Disabled")) {
+            status.innerText = "Enabled ✅";
+            button.innerText = "Disable 2-Step Verification";
+            button.classList.remove("btn-success");
+            button.classList.add("btn-danger");
+        } else {
+            status.innerText = "Disabled ❌";
+            button.innerText = "Enable 2-Step Verification";
+            button.classList.remove("btn-danger");
+            button.classList.add("btn-success");
+        }
+    }
+
+    function uploadKYC() {
+        let file = document.getElementById("kycFile").value;
+        if (file) {
+            document.getElementById("kycStatus").innerText = "Verified ✅";
+            alert("KYC Document Uploaded Successfully!");
+        } else {
+            alert("Please upload a document!");
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bluestock Fintech Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Styles/style7.css">
+  <style>
+    /* Custom styles for user avatar */
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #3F52FF;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar p-3" id="sidebar">
+    <!-- <button class="btn btn-outline-secondary me-3" id="toggleSidebar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <div class="d-flex text-center py-2">
+        <img src="photos/Logo (1).png" class="me-2">
+        <span>Bluestock Fintech</span>
+    </div>
+    <hr>
+    <nav class="nav flex-column">
+        <p class="text-muted">Menu</p>
+        <a href="IPOAdminDashboard.html" class="nav-link active"><img src="category/Chart1.png" class="me-2"><span>Dashboard</span></a>
+        <a href="IPOUpcomingScreen.html" class="nav-link text-muted"><img src="category/Buy1.png" class="me-2"><span>Manage IPO</span></a>
+        <a href="#" id="subs" class="nav-link text-muted"><img src="category/Document.png" class="me-2"><span>IPO Subscription</span></a>
+        <a href="#" class="nav-link text-muted" id="ipoAllotmentBtn"><img src="category/Chat.png" class="me-2"><span>IPO Allotment</span></a>
+        <hr>
+        <p>Others</p>
+        <a href="#" class="nav-link text-muted"><img src="category/Setting.png" class="me-2"><span>Settings</span></a>
+        <a href="#" class="nav-link text-muted"><img src="category/Wallet.png" class="me-2"><span>API Manager</span></a>
+        <a href="#" class="nav-link text-muted"><img src="category/Profile.png" class="me-2"><span>Accounts</span></a>
+        <a href="#" class="nav-link text-muted"><img src="category/Help.png" class="me-2"><span>Help</span></a>
+    </nav>
+</div>
+
+<!-- Main Content -->
+<div class="w-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 me-2 navB" id="navbar">
+        <input class="form-control w-50" type="search" placeholder="Search" aria-label="Search">
+        <i class="fa fa-search text-muted ms-2" style="color: #627B87;" aria-hidden="true"></i>
+        <div class="ms-auto d-flex align-items-center">
+          <!-- User Avatar -->
+     <div class="user-avatar me-3" id="userAvatar">V</div>
+     <span class="me-3">Hi, Vishwa</span>
+     <!-- Dropdown Menu -->
+     <div class="dropdown">
+       <button class="btn btn-light dropdown-toggle me-3" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+         
+       </button>
+       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+         <li><a class="dropdown-item" href="setting-page.html">Profile</a></li>
+         <li><button class="dropdown-item text-danger" id="logoutButton" onclick="logoutAllSessions()">Logout</button></li>
+       </ul>
+     </div>
+   </div>
+        <div class="notificationsContainer position-relative">
+          <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png" alt="Bell" width="25" id="notificationBell">
+          <span id="notificationBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">
+            0
+          </span>
+          <div id="notificationDropdown" class="dropdown-menu dropdown-menu-end p-2 shadow" style="width: 300px; display:none;">
+            <p class="text-center text-muted">No new notifications</p>
+          </div>
+      </div>      
+  
+    </nav>        
+</div>
+    <!-- Main Content -->
+  <div class="content flex-grow-1 p-4">
+    <div class="container-fluid d-flex">
+      <div class="row">
+        <h4>Dashboard</h4>
+          <!-- IPO Dashboard -->
+          <div class="card col-md-4 p-3 mt-3">
+            <h5>IPO Dashboard India</h5>
+            <p class="text-success">↑ <span id="ipoGainCount">Loading...</span> IPO in Gain</p>
+            <script>
+              // Fetch the IPO gain count dynamically from the API
+              fetch('http://localhost:5000/api/dashboard')
+              .then(response => response.json())
+              .then(data => {
+                const ipoGainCount = data.ipoInGain || 0; // Replace with the actual key from your API response
+                document.getElementById('ipoGainCount').textContent = ipoGainCount;
+              })
+              .catch(error => {
+                console.error('Error fetching IPO gain count:', error);
+                document.getElementById('ipoGainCount').textContent = 'Error';
+              });
+            </script>
+            <div class="container d-flex justify-content-center ms-4 align-items-center">
+              <div class="circle-container">
+                  <div class="circle large orange">
+                      <span class="circle-text">30 <br> <small>Total IPO</small></span>
+                  </div>
+                  <div class="circle medium purple">
+                      <span class="circle-text">9 <br> <small>IPO in Loss</small></span>
+                  </div>
+                  <div class="circle medium blue">
+                      <span class="circle-text">20 <br> <small>IPO in Gain</small></span>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="d-flex" style="height: 200px;">
+            <div class="vr"></div>
+          </div> -->
+          <!-- Quick Links -->
+          <div class="card col-md-4 p-3 mt-3">
+            <h5>Quick Links</h5>
+            <p class="text-muted">Explore more ipos listing from various companies...</p>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-2">
+                <img src="photos/Group 299 (3).png" class="me-2" width="50">
+                <a href="#" class="text-decoration-none text-dark">NSE India</a>
+                <a href="#" class="ms-auto text-muted visit-btn" data-id="17">Visit Now</a>
+              </li>
+              
+              <hr class="text-muted">
+              <li class="d-flex align-items-center mb-2">
+                <img src="photos/Group 299 (2).png" class="me-2" width="50">
+                <a href="#" class="text-decoration-none text-dark">BSE India</a>
+                <a href="#" class="ms-auto text-muted visit-btn">Visit Now</a>
+              </li>
+              <hr class="text-muted">
+              <li class="d-flex align-items-center mb-2">
+                <img src="photos/Group 299 (1).png" class="me-2" width="50">
+                <a href="#" class="text-decoration-none text-dark">SEBI</a>
+                <a href="#" class="ms-auto text-muted visit-btn ">Visit Now</a>
+              </li>
+              <hr class="text-muted">
+              <li class="d-flex align-items-center mb-2">
+                <img src="photos/Group 299.png" class="me-2" width="50">
+                <a href="#" class="text-decoration-none text-dark">Money Control</a>
+                <a href="#" class="ms-auto text-muted visit-btn">Visit Now</a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- <div class="d-flex" style="height: 200px;">
+            <div class="vr"></div>
+          </div> -->
+
+          <!-- Main Board IPO -->
+          <div class="card col-md-4 p-3 mt-3">
+            <div class="d-flex gap-4 justify-content-between">
+              <div class="col">
+                <h5>Main Board IPO</h5>
+                <p class="text-muted mt-n5">From 01 Jan 2024</p>
+              </div>
+              <button style="color:#3F52FF; " class="btn btn-light d-flex mb-n3 btn-custom mx-auto text-info shadow" id="viewReportBtn">View Report</button>
+            </div>
+            <canvas id="ipoChart"></canvas>
+          </div>
+        </div>
+      </div>
+  </div>
+
+<!-- View Report Button -->
+<button id="viewReportBtn" class="btn btn-primary">View Report</button>
+
+<!-- Modal for Report -->
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reportModalLabel">IPO Report</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Company ID</th>
+              <th>Company Name</th>
+              <th>Status</th>
+              <th>IPO ID</th>
+              <th>Price per IPO</th>
+              <th>Issue Size</th>
+              <th>Opening Date</th>
+              <th>Closing Date</th>
+              <th>Action</th> <!-- Column for View button -->
+            </tr>
+          </thead>
+          <tbody id="reportTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // When "View Report" is clicked
+  document.getElementById('viewReportBtn').addEventListener('click', function () {
+    fetch('http://localhost:5000/api/ipo-dashboard')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => {
+        const tableBody = document.getElementById('reportTableBody');
+        tableBody.innerHTML = ''; // Clear previous rows
+
+        const renderIPOs = (ipos, category) => {
+          ipos.forEach((ipo) => {
+            const row = `
+              <tr>
+                <td>${ipo.company_id}</td>
+                <td><img src="${ipo.logo_url}" alt="${ipo.company_name}" width="50" height="50"/> ${ipo.company_name}</td>
+                <td>${category}</td>
+                <td>${ipo.api_source_id}</td>
+                <td>₹${ipo.price_per_ipo}</td>
+                <td>${ipo.total_shares.toLocaleString()}</td>
+                <td>${new Date(ipo.opening_date).toLocaleDateString()}</td>
+                <td>${new Date(ipo.closing_date).toLocaleDateString()}</td>
+                <td><button class="btn btn-sm btn-primary view-btn" data-company-id="${ipo.company_id}">View</button></td>
+              </tr>
+            `;
+            tableBody.insertAdjacentHTML("beforeend", row);
+          });
+        };
+
+        renderIPOs(data.activeIPOs, 'Active');
+        renderIPOs(data.upcomingIPOs, 'Upcoming');
+        renderIPOs(data.pastIPOs, 'Past');
+
+        const reportModal = new bootstrap.Modal(document.getElementById('reportModal'));
+        reportModal.show();
+      })
+      .catch(error => {
+        console.error('Error fetching the IPO report:', error);
+        alert('Failed to load the report. Please try again later.');
+      });
+  });
+
+  // Delegated event listener to handle View button clicks
+  document.getElementById('reportTableBody').addEventListener('click', function (event) {
+    const btn = event.target.closest('.view-btn');
+    if (btn) {
+      const companyId = btn.getAttribute('data-company-id');
+      if (companyId) {
+        window.location.href = `ipo-details.html?id=${companyId}`;
+      } else {
+        console.error('Company ID is missing');
+      }
+    }
+  });
+            
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all "Visit Now" buttons
+    const visitButtons = document.querySelectorAll(".visit-btn");
+
+    // Attach event listener to each button
+    visitButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            const ipoId = this.getAttribute("data-id"); // Get IPO ID from data attribute
+
+            if (ipoId) {
+                window.location.href = `ipo-details.html?id=${ipoId}`; // Redirect with ID
+            } else {
+                console.error("IPO ID missing");
+            }
+        });
+    });
+});
+            document.addEventListener("DOMContentLoaded", function () {
+            // Object mapping button text to their respective HTML pages
+            const pageMap = {
+                "IPO Allotment": "ipo-allotment.html",
+                "Settings": "setting-page.html",
+                "API Manager": "api-manager.html",
+                "Accounts": "accounts.html",
+                "Help": "help-desk.html"
+            };
+        
+            // Attach click event listeners to each sidebar link
+            document.querySelectorAll(".sidebar .nav-link").forEach(function (link) {
+                const linkText = link.textContent.trim();
+                if (pageMap[linkText]) {
+                    link.addEventListener("click", function (event) {
+                        event.preventDefault(); // Prevent default anchor behavior
+                        window.location.href = pageMap[linkText]; // Redirect to the respective page
+                    });
+                }
+            });
+        });    
+
+// Redirect to settings page
+function redirectToSettings() {
+  window.location.href = 'setting-page.html';
+}
+
+// Logout function
+function logoutAllSessions() {
+  let confirmLogout = confirm("Are you sure you want to log out from all devices?");
+  if (confirmLogout) {
+    alert("Logged out from all devices.");
+    // Add your logout logic here
+  }
+}
+
+// Event listener for user avatar click
+document.addEventListener('DOMContentLoaded', function () {
+  const userAvatar = document.querySelector('.user-avatar');
+  if (userAvatar) {
+    userAvatar.addEventListener('click', redirectToSettings);
+  }
+});
+document.getElementById("ipoAllotmentBtn").addEventListener("click", () => {
+  window.location.href = "ipo-allotment.html";
+});
+
+        </script> 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script3.js"></script>
+
+  <footer style="background-color:white; margin-top:40px; margin-left:150px;" class="footer footer-content"> 
+    <hr>
+    <div style="align-content:space-evenly; margin-left:190px; margin-top:50px;" class="container">
+          <div style="align-content:space-evenly; margin-left:20px;" class="row">
+              <!-- Resources -->
+              <div class="col-md-2">
+                  <h5 class="footer-title">Resources</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#">Trading View</a></li>
+                      <li><a href="#">NSE Holidays</a></li>
+                      <li><a href="#">e-Voting CDSL</a></li>
+                      <li><a href="#">e-Voting NSDL</a></li>
+                      <li><a href="#">Market Timings</a></li>
+                  </ul>
+              </div>
+    
+              <!-- Company -->
+              <div class="col-md-2">
+                  <h5 class="footer-title">Company</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="careers.html">Careers</a></li>
+                      <li><a href="contact-us.html">Contact Us</a></li>
+                      <li><a href="about-us.html">About Us</a></li>
+                      <li><a href="community.html">Community</a></li>
+                      <li><a href="blog.html">Blogs</a></li>
+                  </ul>
+              </div>
+    
+              <!-- Offerings -->
+              <div class="col-md-2">
+                  <h5 class="footer-title">Offerings</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="BrokerCompare.html">Compare Broker</a></li>
+                      <li><a href="#">Fin Calculators</a></li>
+                      <li><a href="index.html">IPO</a></li>
+                      <li><a href="AllBroker.html">All Brokers</a></li>
+                      <li><a href="products.html">Products</a></li>
+                  </ul>
+              </div>
+    
+              <!-- Links -->
+              <div class="col-md-2">
+                  <h5 class="footer-title">Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="SharkInvestor.html">Shark Investor</a></li>
+                      <li><a href="#">Mutual Funds</a></li>
+                      <li><a href="#">Sitemap</a></li>
+                      <li><a href="#">Indian Indices</a></li>
+                      <li><a href="#">Bug Bounty Program</a></li>
+                  </ul>
+              </div>
+    
+              <!-- Policy -->
+              <div class="col-md-2">
+                  <h5 class="footer-title">Policy</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#">Terms & Conditions</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Refund Policy</a></li>
+                      <li><a href="#">Disclaimer</a></li>
+                      <li><a href="#">Trust & Security</a></li>
+                  </ul>
+              </div>
+          </div>
+    
+          <!-- Social Media & Bluestock Details -->
+          <footer  class="footer container-fluid">
+              <div class="container">
+                  <div class="row">
+                      <!-- Social Media & Logo -->
+                      <div style="margin-top:30px;" class="col-md-3 text-center text-md-start">
+                          <div class="social-icons">
+                              <a href="#"><img src="SocialIcon/X.png"></i></a>
+                              <a href="#"><img src="SocialIcon/facebook.png"></i></a>
+                              <a href="#"><img src="SocialIcon/youtube.png"></i></a>
+                              <a href="#"><img src="SocialIcon/linkedin.png"></i></a>
+                              <a href="#"><img src="SocialIcon/instagram.png"></i></a>
+                              <a href="#"><img src="SocialIcon/Telegram.png"></i></a>
+                          </div>
+                          <h5 class="mt-3"><img style="height:40px; width:40px;" class="footer-logo" src="images/logo.png"><strong>BLUESTOCK</strong></h5>
+                          <p class="text-muted">Bluestock Fintech <br>Pune, Maharashtra</p>
+                          <p class="text-muted">MSME Registration No:<br> UDYAM-MH-01-0138001</p>
+                          <img class="startup" src="SocialIcon/startup_india.png" alt="Startup India" width="140">
+                      </div>
+    
+                      <div style="margin-right:70px; margin-top:30px; width:760px;"class="col-md-8 text-center text-md-start">
+                          <p  class="text-muted">
+                              Investment in securities markets is subject to market risks. Read all the related documents carefully before investing as prescribed by SEBI. Issued in the interest of the investors.
+                          </p>
+                          <p class="text-muted">
+                              The users can write to <a href="#">hello@bluestock.in</a> for any app, website related queries. Also you can send IT / Tech related feedback to <a href="#">cto@bluestock.in</a>
+                          </p>
+                          <p class="text-muted">
+                              Disclaimer: We are not a SEBI registered research analyst company. We do not provide any kind of stock recommendations, buy/sell stock tips, or investment advice. The stock scripts shown in the Bluestock app and website are for educational purposes only.
+                          </p>
+                      </div>
+                  </div>
+          
+                  <!-- Footer Bottom -->
+                  <div style="margin-left:600px;" class="row divider text-center">
+                      <div class="col-12 greet">
+                          <p class="mb-0 text-muted">Bluestock Fintech All Rights Reserved.
+                          <p class="text-muted">Made with ❤️ in Pune, Maharashtra</p>
+                      </div>
+                  </div>
+              </div>
+          </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

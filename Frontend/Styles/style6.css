@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  font-family: Poppins;
+}
+
+.body {
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  height: 90px;
+}
+
+.navbar-brand img {
+  height: 45px;
+  width: 85px;
+}
+.nav-link {
+  color: #9A9A9A;
+  margin-left: 15px;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: black;
+}
+.signin {
+color: #9A9A9A;
+}
+.signin:hover {
+color: black;
+}
+.btn-signup {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
+.btn-signup:hover {
+  background-color: #2563eb;
+}
+
+.vector {
+  padding-left: 10px;
+  margin-top: 6px;
+}
+
+.ipo-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+.ipo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
+}
+
+/* Logo Styling */
+.ipo-card img {
+  width: 90px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+/* Title Styling */
+.ipo-card h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Aligning Text in Grid */
+.ipo-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: left;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Individual Info Styling */
+.ipo-details p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.ipo-details strong {
+  display: block;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Button Styles */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-rhp {
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background: white;
+  transition: 0.3s;
+}
+
+.btn-rhp:hover {
+  background: #007bff;
+  color: white;
+}
+
+.btn-drhp {
+  border: none;
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-drhp:hover {
+  background: #e63946;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.faq-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.faq-subtitle {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.accordion-button {
+  font-weight: bold;
+  color: #333;
+  box-shadow: none !important;
+}
+
+.accordion-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.accordion-item {
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  margin-bottom: 10px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+  border-radius: 10px;
+}
+
+.accordion-button::after {
+  content: '+';
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+  background: none;
+  transform: none;
+}
+
+.accordion-button[aria-expanded="true"]::after {
+  content: '-';
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+}
+
+.footer {
+  /* background-color: #f8f9fa; */
+  padding: 40px 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+}
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer-logo {
+  /* width: 20px; */
+  height: 45px;
+  width: 60px;
+}
+
+.footer-content {
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #007bff;
+}
+.social-icons a:hover {
+  color: #0056b3;
+}
+
+.startup {
+  width: 240px;
+  height: 63px;
+}
+
+.greet {
+  justify-content: space-between;
+  display: flex;
+}
+
+.divider {
+  border-top: 2px solid #ddd;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.card {
+/* Allows wrapping to the next line if needed */
+  gap: 20px;
+  width: 450px;
+  height:550px; /* Adjust width as needed */
+  border: 1px solid #ddd;
+  justify-content: left;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  background-color: #fff;
+  text-align: left;
+}
+
+.company-logo{
+  width: 100px; /* Adjust logo size */
+  height: auto;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IPO Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Styles/style7.css">
+    <style>
+        /* Custom styles for user avatar */
+        .user-avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #3F52FF;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar p-3" id="sidebar">
+        <!-- <button class="btn btn-outline-secondary me-3" id="toggleSidebar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span> -->
+        </button>
+        <div class="d-flex text-center py-2">
+            <img src="photos/Logo (1).png" class="me-2">
+            <span>Bluestock Fintech</span>
+        </div>
+        <hr>
+        <nav class="nav flex-column">
+            <p class="text-muted">Menu</p>
+            <a href="IPOAdminDashboard.html" class="nav-link text-muted"><img src="category/Chart2.png" class="me-2"><span>Dashboard</span></a>
+            <a href="IPOUpcomingScreen.html" class="nav-link active"><img src="category/Buy2.png" class="me-2"><span>Manage IPO</span></a>
+            <a href="IPOSubscription.html" class="nav-link text-muted"><img src="category/Document.png" class="me-2"><span>IPO Subscription</span></a>
+            <a href="ipo-allotment.html" class="nav-link text-muted"><img src="category/Chat.png" class="me-2"><span>IPO Allotment</span></a>
+            <hr>
+            <p>Others</p>
+            <a href="setting-page.html" class="nav-link text-muted"><img src="category/Setting.png" class="me-2"><span>Settings</span></a>
+            <a href="api-manager.html" class="nav-link text-muted"><img src="category/Wallet.png" class="me-2"><span>API Manager</span></a>
+            <a href="accounts.html" class="nav-link text-muted"><img src="category/Profile.png" class="me-2"><span>Accounts</span></a>
+            <a href="help-desk.html" class="nav-link text-muted"><img src="category/Help.png" class="me-2"><span>Help</span></a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="w-100">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 me-2 navB" id="navbar">
+            <input class="form-control w-50" type="search" placeholder="Search" aria-label="Search">
+            <i class="fa fa-search text-muted ms-2" style="color: #3F52FF;" aria-hidden="true"></i>
+            <i class="fa fa-search text-muted ms-2" style="color: #3F52FF;" aria-hidden="true"></i>
+        <div class="ms-auto d-flex align-items-center">
+             <!-- User Avatar -->
+        <div class="user-avatar me-3" id="userAvatar">V</div>
+        <span class="me-3">Hi, Vishwa</span>
+        <!-- Dropdown Menu -->
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle me-3" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="setting-page.html">Profile</a></li>
+            <li><button class="dropdown-item text-danger" id="logoutButton" onclick="logoutAllSessions()">Logout</button></li>
+          </ul>
+        </div>
+      </div>
+            <div class="notificationsContainer position-relative">
+                <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png" alt="Bell" width="25" id="notificationBell">
+                <span id="notificationBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">
+                  0
+                </span>
+                <div id="notificationDropdown" class="dropdown-menu dropdown-menu-end p-2 shadow" style="width: 300px; display:none;">
+                  <p class="text-center text-muted">No new notifications</p>
+                </div>
+            </div>
+        </nav>        
+    </div>
+
+    <!-- Main Content -->
+    <div class="content p-2 me-2">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3>Upcoming IPO | Dashboard</h3>
+            <a  href="RegisterIPODetails.html"><button class="btn btn-outline-primary">Register IPO</button></a>
+        </div>
+
+        <table class="table table-bordered bg-white">
+            <thead class="table-light">
+                <tr>
+                    <th>Company</th>
+                    <th>Price Band</th>
+                    <th>Open</th>
+                    <th>Close</th>
+                    <th>Issue Size</th>
+                    <th>Issue Type</th>
+                    <th>Listing Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                    <th>Delete/View</th>
+                </tr>
+            </thead>
+            <tbody id="ipoTable">
+                <!-- Data will be inserted dynamically -->
+            </tbody>
+        </table>
+
+
+
+        <!-- Pagination -->
+        <nav>
+            <ul class="pagination">
+                <li class="page-item disabled me-2">
+                    <a class="page-link rounded-3 text-dark" href="#">❮</a>
+                </li>
+                <li class="page-item active me-2"><a class="page-link rounded-3 text-dark" href="#">1</a></li>
+                <li class="page-item me-2"><a class="page-link rounded-3 text-dark" href="#">2</a></li>
+                <li class="page-item me-2"><a class="page-link rounded-3 text-dark" href="#">...</a></li>
+                <li class="page-item me-2"><a class="page-link rounded-3 text-dark" href="#">9</a></li>
+                <li class="page-item me-2"><a class="page-link rounded-3 text-dark" href="#">10</a></li>
+                <li class="page-item me-2">
+                    <a class="page-link me-2 rounded-3 text-dark" href="#">❯</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+<script>
+    // When "View Report" is clicked
+    document.getElementById('viewReportBtn').addEventListener('click', function () {
+      fetch('http://localhost:5000/api/ipo-dashboard')
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(data => {
+          const tableBody = document.getElementById('reportTableBody');
+          tableBody.innerHTML = ''; // Clear previous rows
+  
+          const renderIPOs = (ipos, category) => {
+            ipos.forEach((ipo) => {
+              const row = `
+                <tr>
+                  <td>${ipo.company_id}</td>
+                  <td><img src="${ipo.logo_url}" alt="${ipo.company_name}" width="50" height="50"/> ${ipo.company_name}</td>
+                  <td>${category}</td>
+                  <td>${ipo.api_source_id}</td>
+                  <td>₹${ipo.price_per_ipo}</td>
+                  <td>${ipo.total_shares.toLocaleString()}</td>
+                  <td>${new Date(ipo.opening_date).toLocaleDateString()}</td>
+                  <td>${new Date(ipo.closing_date).toLocaleDateString()}</td>
+                  <td><button class="btn btn-sm btn-primary view-btn" data-company-id="${ipo.company_id}">View</button></td>
+                </tr>
+              `;
+              tableBody.insertAdjacentHTML("beforeend", row);
+            });
+          };
+  
+          renderIPOs(data.activeIPOs, 'Active');
+          renderIPOs(data.upcomingIPOs, 'Upcoming');
+          renderIPOs(data.pastIPOs, 'Past');
+  
+          const reportModal = new bootstrap.Modal(document.getElementById('reportModal'));
+          reportModal.show();
+        })
+        .catch(error => {
+          console.error('Error fetching the IPO report:', error);
+          alert('Failed to load the report. Please try again later.');
+        });
+    });
+  
+    // Delegated event listener to handle View button clicks
+    document.getElementById('reportTableBody').addEventListener('click', function (event) {
+      const btn = event.target.closest('.view-btn');
+      if (btn) {
+        const companyId = btn.getAttribute('data-company-id');
+        if (companyId) {
+          window.location.href = `ipo-details.html?id=${companyId}`;
+        } else {
+          console.error('Company ID is missing');
+        }
+      }
+    });
+              
+    document.addEventListener("DOMContentLoaded", function () {
+      // Select all "Visit Now" buttons
+      const visitButtons = document.querySelectorAll(".visit-btn");
+  
+      // Attach event listener to each button
+      visitButtons.forEach(button => {
+          button.addEventListener("click", function (event) {
+              event.preventDefault(); // Prevent default anchor behavior
+              const ipoId = this.getAttribute("data-id"); // Get IPO ID from data attribute
+  
+              if (ipoId) {
+                  window.location.href = `ipo-details.html?id=${ipoId}`; // Redirect with ID
+              } else {
+                  console.error("IPO ID missing");
+              }
+          });
+      });
+  });
+              document.addEventListener("DOMContentLoaded", function () {
+              // Object mapping button text to their respective HTML pages
+              const pageMap = {
+                  "IPO Allotment": "ipo-allotment.html",
+                  "Settings": "setting-page.html",
+                  "API Manager": "api-manager.html",
+                  "Accounts": "accounts.html",
+                  "Help": "help-desk.html"
+              };
+          
+              // Attach click event listeners to each sidebar link
+              document.querySelectorAll(".sidebar .nav-link").forEach(function (link) {
+                  const linkText = link.textContent.trim();
+                  if (pageMap[linkText]) {
+                      link.addEventListener("click", function (event) {
+                          event.preventDefault(); // Prevent default anchor behavior
+                          window.location.href = pageMap[linkText]; // Redirect to the respective page
+                      });
+                  }
+              });
+          });    
+  
+  // Redirect to settings page
+  function redirectToSettings() {
+    window.location.href = 'setting-page.html';
+  }
+  
+  // Logout function
+  function logoutAllSessions() {
+    let confirmLogout = confirm("Are you sure you want to log out from all devices?");
+    if (confirmLogout) {
+      alert("Logged out from all devices.");
+      // Add your logout logic here
+    }
+  }
+  
+  // Event listener for user avatar click
+  document.addEventListener('DOMContentLoaded', function () {
+    const userAvatar = document.querySelector('.user-avatar');
+    if (userAvatar) {
+      userAvatar.addEventListener('click', redirectToSettings);
+    }
+  });
+  document.getElementById("ipoAllotmentBtn").addEventListener("click", () => {
+    window.location.href = "ipo-allotment.html";
+  });
+</script>
+    <script src="script4.js"></script>
+    <script src="script3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

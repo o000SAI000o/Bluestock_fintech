@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPO Details</title>
+    <style>
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #d6cfff;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            text-align: center;
+        }
+        .company-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        #ipoText{
+            text-align:left;
+        }
+        .details{
+            text-align: center;
+        }
+        .details p {
+            text-align: center;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back { background-color: #3F52FF; color: white; }
+        .apply { background-color: #3F52FF; color: white; }
+        .prospectus { background-color: #3F52FF; color: white; }
+        .share { background-color: #3F52FF; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IPO Details</h1>
+        <div id="ipo-details">Loading...</div>
+        <div class="button-group">
+            <button class="back" onclick="goBack()">⬅ Back</button>
+            <button class="apply" onclick="applyIPO()">Apply Now</button>
+            <button class="prospectus" onclick="viewProspectus()">View Prospectus</button>
+            <button class="share" onclick="shareIPO()">Share</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const ipoId = urlParams.get("id");
+
+            if (!ipoId) {
+                document.getElementById("ipo-details").innerHTML = "<p>No IPO ID provided.</p>";
+                return;
+            }
+            
+            try {
+                const response = await fetch(`http://localhost:5000/api/ipos/${ipoId}`);
+                const ipo = await response.json();
+                
+                // Fetch IPO info (Markdown stored as text)
+                const detailsResponse = await fetch(`http://localhost:5000/api/ipo-details/${ipoId}`);
+                const details = await detailsResponse.json();
+
+                document.getElementById("ipo-details").innerHTML = `
+                    <img src="${ipo.company_logo_url}" alt="${ipo.company_name}" class="company-logo">
+                    <h2>${ipo.company_name}</h2>
+                    <hr>
+
+                    <div class="details">
+                        <p><strong>Price Band:</strong> ${ipo.price_band}</p>
+                        <p><strong>Issue Size:</strong> ${ipo.issue_size}</p>
+                        <p><strong>Listing Date:</strong> ${new Date(ipo.listing_date).toLocaleDateString()}</p>
+                        <p><strong>Opening Date:</strong> ${new Date(ipo.opening_date).toLocaleDateString()}</p>
+                        <p><strong>Closing Date:</strong> ${new Date(ipo.closing_date).toLocaleDateString()}</p>
+                        <p><strong>Issue Type:</strong> ${ipo.issue_type}</p>
+                        <p><strong>Status:</strong> ${ipo.status}</p>
+                    </div>
+                    <hr>
+                    <div id="ipoText">${details.ipo_info}</div>
+                `;
+            } catch (error) {
+                console.error("Error fetching IPO details:", error);
+                document.getElementById("ipo-details").innerHTML = "<p>Error loading details.</p>";
+            }
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+
+        function applyIPO() {
+            alert("Redirecting to the IPO application page...");
+        }
+
+        function viewProspectus() {
+            alert("Opening the IPO prospectus...");
+        }
+
+        function shareIPO() {
+            alert("Sharing IPO details...");
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+body {
+  font-family: Poppins;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background: white;
+  padding: 30px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.company {
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.company h3 {
+  margin-top: 35px;
+  font-size: 2rem;
+}
+.logo {
+  height: 50px;
+  width: 60px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.forgot {
+  margin-top: -10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.passw {
+  display: flex;
+  
+}
+
+.passw input {
+  width: 310px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+
+.login-btn {
+  background: #5D12D2;
+  color: white;
+  padding: 10px;
+  border: none;
+  height: 48px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+
+.create-account {
+  display: block;
+  margin-top: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  color: #878787;
+}

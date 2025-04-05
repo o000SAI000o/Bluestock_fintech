@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluestock Login</title>
+    <link rel="stylesheet" href="styles/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="login-container">
+        <div class="company">
+          <img class="logo" src="images/logo.png" alt="Bluestock Logo">
+          <h3>BLUESTOCK</h3>
+        </div>
+
+        <form id="login-form">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="johndoe@gmail.com" required>
+
+            <label for="password">Password <a href="forgotPass.html" class="forgot-password">Forgot Password?</a></label>
+            <div class="passw">
+              <input class="password-container" type="password" id="password" placeholder="Password" required>
+              <i class="fa-sharp fa-regular fa-eye fa-2x" id="toggle-password"></i>
+            </div>
+
+            <div class="captcha-container">
+                <div class="part-1">
+                  <input type="checkbox" id="not-a-robot" name="captcha">
+                  <label for="not-a-robot" class="robo">I'm not a robot</label>
+                </div>
+                <div class="part-2">
+                  <img src="images/recaptcha-icon.png" alt="reCAPTCHA Icon">
+                </div>
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember" class="keep-me">Keep me signed in</label>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <div class="or-divider"><p class="other-way">or sign in with</p></div>
+
+            <button class="google-btn">
+              <img src="images/google-icon.png" alt="Google"> Continue with Google
+            </button>
+
+            <a href="signup.html" class="create-account">Create an account</a>
+        </form>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

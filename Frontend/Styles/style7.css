@@ -1,0 +1,268 @@
+body {
+  font-family: Poppins;
+  background-color: #f8f9fa;
+}
+
+.sidebar {
+  width: 250px;
+  background: #F1F2F7;
+  height: 100vh;
+  position: fixed;
+  padding: 15px;
+  transition: 0.3s;
+}
+.navB {
+  position: relative;
+  width: 100px;
+}
+.sidebar .nav-link {
+  color: #333;
+  font-weight: 500;
+}
+.sidebar .nav-link.active {
+  background: #707FDD;
+  border-radius: 5px;
+}
+.navbar {
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  transition: 0.3s;
+}
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: 0.3s;
+  width: 100%;
+}
+.sidebar.collapsed {
+  width: 70px;
+}
+.sidebar.collapsed .nav-item span {
+  display: none;
+}
+.navbar.collapsed {
+  width: calc(100% - 70px);
+  margin-left: 70px;
+}
+.main-content.collapsed {
+  margin-left: 70px;
+}
+
+.notification {
+  position: relative;
+  cursor: pointer;
+}
+.notification::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: red;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border-radius: 50%;
+}
+/* Ensure the notification dropdown is positioned correctly */
+.notificationsContainer {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#notificationDropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 300px;
+  right: 0;
+}
+
+#notificationDropdown.show {
+  display: block !important;
+}
+
+/* Ensure notifications look good */
+.dropdown-item {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  white-space: normal; /* Allow text wrapping */
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Style for the red badge */
+#notificationBadge {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+.visit-btn {
+  position: relative;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #c582ff;
+  font-weight: bold;
+  transition: 0.8s ease-in-out;
+}
+.visit-btn:hover {
+  animation: neonGlow 1.5s infinite alternate;
+  background: linear-gradient(135deg, #eedaff, #fed2ff);
+
+}
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  background-color: #fde8cd;
+  color: #f59e0b;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.event {
+  cursor: pointer;
+}
+.content {
+  margin-left: 260px;
+}
+
+.card {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.circle-container {
+  position: relative;
+  width: 870px;
+  height: 400px;
+}
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.circle {
+  animation: fadeScale 0.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+.circle:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.circle:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.circle:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+.circle-text small {
+  font-size: 14px;
+  display: block;
+}
+/* Large Orange Circle */
+.large {
+  width: 200px;
+  height: 200px;
+  background-color: #f99c38;
+  border: 3px solid #ff9d32;
+  top: 50px;
+  left: 100px;
+}
+
+/* Medium Purple Circle */
+.medium {
+  width: 120px;
+  height: 120px;
+}
+
+.purple {
+  background-color: #7766db;
+  border: 3px solid #a89fe3;
+  top: 10px;
+  left: 80px;
+}
+
+/* Medium Blue Circle */
+.blue {
+  background-color: #2db5d3;
+  border: 3px solid #6cc5e0;
+  top: 120px;
+  left: 20px;
+}
+.hero-section {
+  display: flex;
+  gap: 50px;
+}
+.btn-custom {
+  height: 40px;
+  border: 0.5px solid grey;
+}
+ul.list-unstyled li {
+  display: flex;
+  align-items: center;
+}
+
+ul.list-unstyled li img {
+  margin-right: 10px;
+  width: 60px;
+}
+ul.list-unstyled li a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul.list-unstyled li a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+  }
+  
+  .content {
+        margin-left: 0;
+    }
+}
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.circle {
+  animation: fadeScale 0.8s ease-in-out forwards;
+}
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 5px #f6d0f9; }
+  50% { box-shadow: 0 0 20px #d29deb; }
+  100% { box-shadow: 0 0 5px #a183e7; }
+}

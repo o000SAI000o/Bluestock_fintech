@@ -1,0 +1,237 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background: white;
+  padding: 30px;
+  margin-top: 100px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.company {
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.company p {
+  margin-top: 35px;
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+}
+
+.account {
+  margin-top: -5px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.terms {
+  display: flex;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.terms p {
+  padding-right: 5px;
+  color: #4B5768;
+}
+
+.terms a {
+  padding: 2px;
+  color: #3F52FF;
+  text-decoration: none;
+}
+
+.captcha-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  background: #FFFFFF;
+  border: 1px solid #333333;
+  border-radius: 18px;
+  width: 100%;
+  height: 60px;
+}
+
+.captcha-container img {
+  height: 25px;
+}
+
+.part-1 {
+  align-items: center;
+  margin-left: 24px;
+  gap: 8px;
+  display: flex;
+}
+
+.part-1 input {
+  height: 18px;
+  width: 18px;
+}
+
+.robo {
+  margin-top: 10px;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.part-2 {
+  display: flex;
+  margin-right: 24px;
+  flex-direction: column;
+}
+
+.part-2 img {
+  height: 45px;
+  width: 48px;
+}
+.login-btn {
+  background: #5D12D2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #4A0FB5;
+}
+
+.login-btn:focus {
+  outline: 2px solid #3F52FF;
+  outline-offset: 2px;
+}
+
+.or-divider {
+  font-size: 12px;
+  color: black;
+  display: flex;
+  text-align: center;
+  position: relative;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 0.5px solid #e1eaf7;
+  margin: 30px 0;
+}
+
+.other-way {
+  background: #F4F5F7;
+  width: 128px;
+  font-size: 0.9rem;
+  color: #999DA3;
+  padding: 8px;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #E4E7EB;
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 48px;
+  color: #4B5768;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.google-btn img {
+  max-width: 24px;
+  max-height: 24px;
+}
+
+.create-account {
+  display: block;
+  margin-top: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  color: #3F52FF;
+}
+
+.create-account:hover {
+  text-decoration: underline;
+font-size: 16px;
+text-decoration: none;
+color: #3F52FF;
+}
+
+.base {
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+}
+
+.base p {
+  font-size: 16px;
+  padding: 5px;
+}
+
+.base a {
+  font-size: 16px;
+  color: #3F52FF;
+  text-decoration: none;
+}

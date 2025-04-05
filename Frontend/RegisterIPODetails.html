@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPO Registration Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Styles/style8.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar p-3" id="sidebar">
+        <div class="d-flex text-center py-2">
+            <img src="https://i.ibb.co/zT8tzYs5/Logo-1.png" class="me-2" alt="Bluestock Logo">
+            <span>Bluestock Fintech</span>
+        </div>
+        <hr>
+        <nav class="nav flex-column">
+            <p class="text-muted">Menu</p>
+            <a href="IPOAdminDashboard.html" class="nav-link text-muted">
+                <img src="category/Chart2.png" class="me-2" alt="Dashboard Icon" onerror="this.src='fallback.png';">
+                <span>Dashboard</span>
+            </a>
+            <a href="IPOUpcomingScreen.html" class="nav-link active">
+                <img src="category/Buy2.png" class="me-2" alt="Manage IPO Icon">
+                <span>Manage IPO</span>
+            </a>
+            <a href="#" class="nav-link text-muted">
+                <img src="category/Document.png" class="me-2" alt="Subscription Icon">
+                <span>IPO Subscription</span>
+            </a>
+            <a href="#" class="nav-link text-muted">
+                <img src="category/Chat.png" class="me-2" alt="Allotment Icon">
+                <span>IPO Allotment</span>
+            </a>
+            <hr>
+            <p>Others</p>
+            <a href="#" class="nav-link text-muted">
+                <img src="category/Setting.png" class="me-2" alt="Settings Icon">
+                <span>Settings</span>
+            </a>
+            <a href="#" class="nav-link text-muted">
+                <img src="category/Wallet.png" class="me-2" alt="API Manager Icon">
+                <span>API Manager</span>
+            </a>
+            <a href="#" class="nav-link text-muted">
+                <img src="category/Profile.png" class="me-2" alt="Accounts Icon">
+                <span>Accounts</span>
+            </a>
+            <a href="#" class="nav-link text-muted">
+                <img src="category/Help.png" class="me-2" alt="Help Icon">
+                <span>Help</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="w-100">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 me-2 navB" id="navbar">
+            <div class="d-flex align-items-center w-100">
+                <button id="toggleSidebar" class="btn btn-outline-secondary me-3">☰</button>
+                <input class="form-control w-50" type="search" placeholder="Search" aria-label="Search">
+                <i class="fa fa-search text-aamuted ms-2" aria-hidden="true"></i>
+                <div class="ms-auto d-flex align-items-center">
+                    <div class="user-avatar me-3">V</div>
+                    <span class="me-3">Hi, Vishal</span>
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle me-3" type="button" data-bs-toggle="dropdown" aria-label="User Menu" alt="User Menu">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="notification me-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png" alt="Notifications" width="25">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between align-items-center py-3">
+            <div class="column-flex">
+                <div class="d-flex justify-content-between">
+                    <div class="flex-column">
+                        <h2 class="fw-bold">Upcoming IPO Information</h2>
+                        <p>Manage your IPO Details</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="sidebarX me-5">
+                        <a href="#" class="nav-link active p-2 mb-2">
+                            <img src="category/IPOInformation.png" class="me-2" alt="IPO Information Icon">
+                            <span>IPO Information</span>
+                        </a>
+                        <a href="#" class="nav-link text-muted mb-2">
+                            <img src="category/IPOInfo.png" class="me-2" alt="IPO Info Icon">
+                            <span>IPO Info</span>
+                        </a>
+                    </div>
+                    <div class="column-flex">
+                        <h4 class="fw-bold">IPO Information</h4>
+                        <p class="text-muted">Enter IPO Details</p>
+                        <hr>
+                        <div class="col-lg-11 mx-auto">
+                            <h5 class="fw-bold">Company Logo</h5>
+                            <div class="d-flex align-items-center border p-3 rounded mb-3">
+                                <img src="category/Rectangle.png" alt="Company Logo" class="me-3" onerror="this.src='fallback.png';">
+                                <div>
+                                    <strong>NSE India</strong><br>
+                                    <span class="text-muted">Tech Lead, Pune</span>
+                                </div>
+                                <div class="ms-auto d-flex gap-2">
+                                    <button class="btn btn-primary">Upload Logo</button>
+                                    <button class="btn btn-outline-secondary">Delete</button>
+                                </div>
+                            </div>
+
+                            <form id="ipoForm" class="row g-3">
+                                <!-- IPO Details Section -->
+                                <div class="col-md-6">
+                                    <label for="company_name" class="form-label">Company Name</label>
+                                    <input type="text" id="company_name" name="company_name" class="form-control rounded" value="Vodafone Idea">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="company_id" class="form-label">Company id</label>
+                                    <input type="text" id="company_id" name="company_id" class="form-control rounded" value="01">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="api_source_id" class="form-label">IPO Id</label>
+                                    <input type="text" id="api_source_id" name="api_source_id" class="form-control rounded" value="12345">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="price_band" class="form-label">Price Band</label>
+                                    <input type="text" id="price_band" name="price_band" class="form-control rounded" value="Not Issued">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="opening_date" class="form-label">Opening Date</label>
+                                    <input type="date" id="opening_date" name="opening_date" class="form-control rounded" value="2025-04-01">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="closing_date" class="form-label">Closing Date</label>
+                                    <input type="date" id="closing_date" name="closing_date" class="form-control rounded" value="2025-04-10">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="issue_size" class="form-label">Issue Size</label>
+                                    <input type="text" id="issue_size" name="issue_size" class="form-control rounded" value="2300 Cr.">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="issue_type" class="form-label">Issue Type</label>
+                                    <select id="issue_type" name="issue_type" class="form-select rounded">
+                                        <option value="">Select Type</option>
+                                        <option value="Mainboard">Mainboard</option>
+                                        <option value="SME">SME</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="listing_date" class="form-label">Listing Date</label>
+                                    <input type="date" id="listing_date" name="listing_date" class="form-control rounded" value="2025-05-30">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="status" class="form-label">Status</label>
+                                    <select id="status" name="status" class="form-select rounded">
+                                        <option value="">Select Status</option>
+                                        <option value="Upcoming">Upcoming</option>
+                                        <option value="Ongoing">Ongoing</option>
+                                        <option value="Closed">Closed</option>
+                                    </select>
+                                </div>
+                            
+                                <!-- New Listed IPO Details Section -->
+                                <hr class="my-4">
+                                <h5 class="fw-bold">New Listed IPO Details (When IPO Gets Listed)</h5>
+                            
+                                <div class="row g-3 mb-5">
+                                    <div class="col-md-6">
+                                        <label for="ipo_price" class="form-label">IPO Price</label>
+                                        <input type="text" id="ipo_price" name="ipo_price" class="form-control rounded" value="₹ 383">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="listing_price" class="form-label">Listing Price</label>
+                                        <input type="text" id="listing_price" name="listing_price" class="form-control rounded" value="₹ 435">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="listing_gain" class="form-label">Listing Gain</label>
+                                        <input type="text" id="listing_gain" name="listing_gain" class="form-control rounded" value="13.58 %">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="CMP" class="form-label">CMP</label>
+                                        <input type="text" id="CMP" name="CMP" class="form-control rounded" value="₹410">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="current_return" class="form-label">Current Return</label>
+                                        <input type="text" id="current_return" name="current_return" class="form-control rounded" value="7.05%">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="RHP" class="form-label">RHP</label>
+                                        <input type="text" id="RHP" name="RHP" class="form-control rounded" placeholder="Enter RHP PDF Link">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="DRHP" class="form-label">DRHP</label>
+                                        <input type="text" id="DRHP" name="DRHP" class="form-control rounded" placeholder="Enter DRHP PDF Link">
+                                    </div>
+                                </div>
+                                <!-- Submit Button -->
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary">Register</button>
+                                    <button type="text" id="cancel" class="btn btn-primary">Cancel</button>
+                                </div>
+                            </form>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.getElementById('toggleSidebar')?.addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('collapsed');
+            document.getElementById('navbar').classList.toggle('collapsed');
+        });
+        document.getElementById('cancel').addEventListener('click', function() {
+            document.getElementById('ipoForm').reset();
+        });
+        
+        document.getElementById('ipoForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent the default form submission
+        
+            const form = event.target;
+            const formData = new FormData(form);
+        
+            // Convert FormData to a plain object
+            const formObject = Object.fromEntries(formData.entries());
+        
+            try {
+                const response = await fetch('http://localhost:5000/api/ipo', {
+                    method: 'POST',
+                    credentials: 'include', // Include cookies in the request
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formObject),
+                  });
+                  
+        
+                const result = await response.json();
+        
+                if (response.ok) {
+                    alert('IPO created successfully!');
+                    form.reset(); // Reset the form after successful submission
+                } else {
+                    alert(`Error: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('An error occurred while submitting the form.');
+            }
+        });
+    </script>
+</body>
+</html>

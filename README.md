@@ -1,1 +1,1 @@
-# Bluestock_fintech
+# bluestock_ipo
